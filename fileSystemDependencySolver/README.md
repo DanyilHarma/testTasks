@@ -68,14 +68,3 @@
     <li><strong>Циклическая зависимость:</strong> Программа сообщит о наличии цикла и укажет, где был обнаружен цикл.</li>
 </ul>
 
-<h2>Требования</h2>
-<ul>
-    <li><strong>Java 11+</strong> (или совместимая версия JDK)</li>
-    <li><strong>ОС:</strong> Windows, Linux, macOS</li>
-</ul>
-
-<h2>Контакты</h2>
-<ul>
-    <li><strong>Email:</strong> [ваш email]</li>
-    <li><strong>GitHub:</strong> [ссылка на ваш GitHub профиль]</li>
-</ul>
