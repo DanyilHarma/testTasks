@@ -1,0 +1,118 @@
+:root {
+    --bgColor1: #D1D0D0;
+    --bgColor2: #A9A9A9;
+
+
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+
+    .todoContainer {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 800px;
+        height: 460px;
+        border: .5px dashed var(--bgColor1);
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 10px;
+            background-color: var(--bgColor1);
+
+            form {
+                .inputContainer {
+                    position: relative;
+
+                    &::before {
+                        content: url(../assets/images/Vector.svg);
+                        position: absolute;
+                        top: 5px;
+                        left: 5px;
+                    }
+                }
+
+                input {
+                    width: 100%;
+                    max-width: 180px;
+                    height: 40px;
+                    background-color: var(--bgColor2);
+                    border: none;
+                    outline: none;
+                    padding-left: 40px;
+                    caret-color: #DDDDDD;
+                    color: #DDDDDD;
+                    font-size: 18px;
+
+                    &::placeholder {
+                        color: #DDDDDD;
+                        font-size: 18px;
+                        font-weight: 400;
+                        line-height: 21px;
+                    }
+                }
+            }
+
+        }
+
+        .todoContent {
+            display: flex;
+            width: 100%;
+            height: 410px;
+
+            .leftPart {
+                width: 30%;
+                height: 100%;
+                background-color: #fff;
+                padding: 0px 10px;
+
+                aside {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 17px;
+
+                    button {
+                        background-color: var(--bgColor2);
+                        border: none;
+                        outline: none;
+                        height: 35px;
+                        font-size: 18px;
+
+                        &:first-of-type {
+                            margin-top: 20px;
+                        }
+                    }
+
+                    #datepicker {
+                        .ui-widget-content {
+                            border: none;
+                            width: 100%;
+                            padding: 0;
+                        }
+                    }
+
+                    .checkboxContainer {
+                        display: flex;
+                        align-items: center;
+
+                        label {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+
+            .rightPart {
+                width: 76.2%;
+                height: 100%;
+                background-color: #ECECEC;
+            }
+        }
+    }
+}

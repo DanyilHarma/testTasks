@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <title>TODO</title>
+</head>
+
+<body>
+
+    <div class="todoContainer">
+        <header>
+            <div class="searchField">
+                <form action="">
+                    <div class="inputContainer">
+                        <input type="search" placeholder="Поиск">
+                    </div>
+                </form>
+            </div>
+            <img src="assets/images/avatar.svg" alt="avatar">
+        </header>
+        <div class="todoContent">
+            <div class="leftPart">
+                <aside>
+                    <button>Сегодня</button>
+                    <button>На неделю</button>
+                    <div id="datepicker"></div>
+                    <div class="checkboxContainer">
+                        <input type="checkbox" id="checkbox">
+                        <label for="checkbox">Только невыполненные</label>
+                    </div>
+                </aside>
+            </div>
+            <div class="rightPart">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>
