@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление студентами</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Управление студентами</h1>
+
+    <!-- Форма для добавления студента -->
+    <h2>Добавить студента</h2>
+    <form id="add-student-form">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="surname">Фамилия:</label>
+        <input type="text" id="surname" name="surname" required><br><br>
+
+        <label for="patronymic">Отчество:</label>
+        <input type="text" id="patronymic" name="patronymic" required><br><br>
+
+        <label for="birthDate">Дата рождения:</label>
+        <input type="date" id="birthDate" name="birthDate" required><br><br>
+
+        <label for="groupName">Группа:</label>
+        <input type="text" id="groupName" name="groupName" required><br><br>
+
+        <button type="submit">Добавить студента</button>
+    </form>
+
+
+    <h2>Список студентов</h2>
+    <button id="list-students-button">Показать студентов</button>
+    <ul id="students-list"></ul>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

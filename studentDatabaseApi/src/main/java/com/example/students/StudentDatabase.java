@@ -72,6 +72,7 @@ public class StudentDatabase {
                 student.setPatronymic(rs.getString("patronymic"));
                 student.setBirthDate(rs.getDate("birth_date").toLocalDate());
                 student.setGroupName(rs.getString("group_name"));
+                student.setStudentId(rs.getInt("student_id"));
                 students.add(student);
             }
 
