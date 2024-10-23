@@ -5,11 +5,12 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
 import java.io.InputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
+import java.util.List;
+import java.util.ArrayList;
 
 public class StudentApi {
 
@@ -31,20 +32,16 @@ public class StudentApi {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             if ("POST".equals(exchange.getRequestMethod())) {
-
                 InputStream inputStream = exchange.getRequestBody();
                 ObjectMapper objectMapper = new ObjectMapper();
                 objectMapper.registerModule(new JavaTimeModule());
 
                 try {
-                    // Преобразуем JSON в объект Student
                     Student student = objectMapper.readValue(inputStream, Student.class);
 
-                    // Добавляем студента в базу данных
                     StudentDatabase db = new StudentDatabase();
                     db.addStudent(student);
 
-                    // Формируем ответ
                     String response = "Студент добавлен!";
                     exchange.sendResponseHeaders(200, response.getBytes().length);
                     OutputStream os = exchange.getResponseBody();
@@ -61,10 +58,18 @@ public class StudentApi {
     }
 
     static class DeleteStudentHandler implements HttpHandler {
+        @Override
         public void handle(HttpExchange exchange) throws IOException {
             if ("DELETE".equals(exchange.getRequestMethod())) {
-                String response = "Студент удалён!";
-                exchange.sendResponseHeaders(200, response.getBytes().length);
+                String query = exchange.getRequestURI().getQuery();
+                String[] params = query.split("=");
+                int studentId = Integer.parseInt(params[1]);
+
+                StudentDatabase db = new StudentDatabase();
+                boolean success = db.deleteStudent(studentId);
+
+                String response = success ? "Студент удалён!" : "Не удалось удалить студента.";
+                exchange.sendResponseHeaders(success ? 200 : 400, response.getBytes().length);
                 OutputStream os = exchange.getResponseBody();
                 os.write(response.getBytes());
                 os.close();
@@ -75,9 +80,16 @@ public class StudentApi {
     }
 
     static class ListStudentsHandler implements HttpHandler {
+        @Override
         public void handle(HttpExchange exchange) throws IOException {
             if ("GET".equals(exchange.getRequestMethod())) {
-                String response = "Список студентов...";
+                StudentDatabase db = new StudentDatabase();
+                List<Student> students = db.listStudents();
+
+                ObjectMapper objectMapper = new ObjectMapper();
+                objectMapper.registerModule(new JavaTimeModule());
+                String response = objectMapper.writeValueAsString(students);
+
                 exchange.sendResponseHeaders(200, response.getBytes().length);
                 OutputStream os = exchange.getResponseBody();
                 os.write(response.getBytes());
