@@ -11,25 +11,33 @@ public class StudentDatabase {
     private static final String PASSWORD = "garmonia69";
 
     public Connection connect() throws SQLException {
+      
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    public void addStudent(Student student) {
-        String sql = "INSERT INTO students (name, surname, patronymic, birth_date, group_name, student_id) VALUES (?, ?, ?, ?, ?, ?)";
+   public void addStudent(Student student) {
+    String sql = "INSERT INTO students (name, surname, patronymic, birth_date, group_name) VALUES (?, ?, ?, ?, ?)";
 
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, student.getName());
-            pstmt.setString(2, student.getSurname());
-            pstmt.setString(3, student.getPatronymic());
-            pstmt.setString(4, student.getBirthDate());
-            pstmt.setString(5, student.getGroupName());
-            pstmt.setInt(6, student.getStudentId());
+    try (Connection conn = connect();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        pstmt.setString(1, student.getName());
+        pstmt.setString(2, student.getSurname());
+        pstmt.setString(3, student.getPatronymic());
+        pstmt.setObject(4, student.getBirthDate());
+        pstmt.setString(5, student.getGroupName());
+        
+
+        int affectedRows = pstmt.executeUpdate();
+        if (affectedRows > 0) {
+            System.out.println("Студент успешно добавлен в базу данных.");
+        } else {
+            System.out.println("Не удалось добавить студента в базу данных.");
         }
+
+    } catch (SQLException e) {
+        System.out.println("Ошибка при добавлении студента: " + e.getMessage());
     }
+}
 }

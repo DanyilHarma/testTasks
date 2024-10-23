@@ -1,14 +1,19 @@
 package com.example.students;
 
+import java.time.LocalDate;
+
 public class Student {
     private String name;
     private String surname;
     private String patronymic;
-    private String birthDate;
+    private LocalDate birthDate;
     private String groupName;
     private int studentId;
 
-    public Student(String name, String surname, String patronymic, String birthDate, String groupName, int studentId) {
+    public Student() {
+    }
+
+    public Student(String name, String surname, String patronymic, LocalDate birthDate, String groupName, int studentId) {
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
@@ -17,8 +22,7 @@ public class Student {
         this.studentId = studentId;
     }
 
-   
-
+ 
     public String getName() {
         return name;
     }
@@ -43,12 +47,16 @@ public class Student {
         this.patronymic = patronymic;
     }
 
-    public String getBirthDate() {
+ public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+ public String getBirthDateString() {
+        return birthDate != null ? birthDate.toString() : null;
     }
 
     public String getGroupName() {
@@ -57,13 +65,5 @@ public class Student {
 
     public void setGroupName(String groupName) {
         this.groupName = groupName;
-    }
-
-    public int getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
     }
 }
