@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+    background-color: #f0f0f0;
+}
+
+h1,
+h2 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    margin: 5px 0;
+    padding: 10px;
+    width: calc(100% - 22px);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.deleteButton {
+    margin-left: 20px;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
