@@ -1,8 +1,6 @@
 :root {
     --bgColor1: #D1D0D0;
     --bgColor2: #A9A9A9;
-
-
 }
 
 
@@ -13,9 +11,9 @@ body {
     background-color: #f0f0f0;
 
     .todoContainer {
-        margin: 0 auto;
+        margin: 130px auto;
         width: 100%;
-        max-width: 800px;
+        max-width: 860px;
         height: 460px;
         border: .5px dashed var(--bgColor1);
 
@@ -40,7 +38,7 @@ body {
 
                 input {
                     width: 100%;
-                    max-width: 180px;
+                    max-width: 250px;
                     height: 40px;
                     background-color: var(--bgColor2);
                     border: none;
@@ -67,7 +65,7 @@ body {
             height: 410px;
 
             .leftPart {
-                width: 30%;
+                width: 30.3%;
                 height: 100%;
                 background-color: #fff;
                 padding: 0px 10px;
@@ -83,6 +81,7 @@ body {
                         outline: none;
                         height: 35px;
                         font-size: 18px;
+                        cursor: pointer;
 
                         &:first-of-type {
                             margin-top: 20px;
@@ -111,6 +110,9 @@ body {
             .rightPart {
                 width: 76.2%;
                 height: 100%;
+                padding-top: 15px;
+                padding-right: 15px;
+                padding-left: 25px;
                 background-color: #ECECEC;
             }
         }
