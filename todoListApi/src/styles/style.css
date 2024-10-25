@@ -65,7 +65,7 @@ body {
             height: 410px;
 
             .leftPart {
-                width: 30.3%;
+                width: 32.5%;
                 height: 100%;
                 background-color: #fff;
                 padding: 0px 10px;
@@ -93,6 +93,45 @@ body {
                             border: none;
                             width: 100%;
                             padding: 0;
+                        }
+                    }
+
+                    .date-picker-range {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 10px;
+                        background-color: #D1D0D0;
+                        padding: 10px;
+                        border-radius: 8px;
+                        max-width: 400px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+                        .date-input {
+                            padding: 10px;
+                            text-align: center;
+                            border: none;
+                            outline: none;
+                            font-size: 16px;
+                            background-color: var(--bgColor2);
+                            color: #fff;
+                            border-radius: 4px;
+                            transition: background-color 0.3s, color 0.3s;
+                        }
+
+                        .date-input::-webkit-calendar-picker-indicator {
+
+                            cursor: pointer;
+                        }
+
+                        .date-input:hover {
+                            background-color: #888;
+                        }
+
+                        .date-input:focus {
+                            background-color: #777;
+                            color: #fff;
+                            border: 1px solid #555;
                         }
                     }
 

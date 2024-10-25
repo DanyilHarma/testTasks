@@ -16,12 +16,12 @@ app.get('/api/todos', async (req, res) => {
     }
 });
 
-
 app.get('/api/todos/date', async (req, res) => {
     try {
-        const { start, end, status } = req.query;
+        const { from, to, status } = req.query;
+        console.log("Received params in /date:", from, to, status);
         const response = await axios.get('https://todo.doczilla.pro/api/todos/date', {
-            params: { start, end, status }
+            params: { from, to, status }
         });
         res.json(response.data);
     } catch (error) {
@@ -45,3 +45,4 @@ app.get('/api/todos/find', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Прокси-сервер запущен на http://localhost:${PORT}`);
 });
+

@@ -29,7 +29,13 @@
                 <aside>
                     <button>Сегодня</button>
                     <button>На неделю</button>
-                    <div id="datepicker"></div>
+                    <div class="date-picker-range">
+                        <label for="from-date">От:</label>
+                        <input type="date" id="from-date" class="date-input">
+                        <label for="to-date">До:</label>
+                        <input type="date" id="to-date" class="date-input">
+                    </div>
+                    <button id="apply-dates">Применить</button>
                     <div class="checkboxContainer">
                         <input type="checkbox" id="checkbox">
                         <label for="checkbox">Только невыполненные</label>
