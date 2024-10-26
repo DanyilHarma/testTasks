@@ -27,8 +27,8 @@
         <div class="todoContent">
             <div class="leftPart">
                 <aside>
-                    <button>Сегодня</button>
-                    <button>На неделю</button>
+                    <button class="today">Сегодня</button>
+                    <button class="toWeek">На неделю</button>
                     <div class="date-picker-range">
                         <label for="from-date">От:</label>
                         <input type="date" id="from-date" class="date-input">
@@ -37,7 +37,7 @@
                     </div>
                     <button id="apply-dates">Применить</button>
                     <div class="checkboxContainer">
-                        <input type="checkbox" id="checkbox">
+                        <input type="checkbox" id="checkboxStatus">
                         <label for="checkbox">Только невыполненные</label>
                     </div>
                 </aside>
@@ -47,11 +47,15 @@
                     <span class="date"></span>
                     <span class="sortDate"></span>
                 </div>
+                <div class="assignContainer">
+
+                </div>
             </div>
         </div>
     </div>
-
-    <script src="scripts/script.js"></script>
+    <script src="scripts/dataService.js"></script>
+    <script src="scripts/uiService.js"></script>
+    <script src="scripts/main.js"></script>
 </body>
 
 </html>
