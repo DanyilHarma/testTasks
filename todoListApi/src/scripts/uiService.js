@@ -1,4 +1,4 @@
-function renderAssign(data, showOnlyOncompleted) {
+function renderAssign(data, showOnlyOncompleted = false) {
     if (showOnlyOncompleted) {
         data = data.filter(task => task.status === false)
     }

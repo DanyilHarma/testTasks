@@ -16,6 +16,7 @@ $("#apply-dates").on("click", function () {
     }
 })
 
+
 $("#checkboxStatus").on("change", function () {
     const showOnlyOncompleted = $(this).is(":checked");
     renderAssign(allTasks, showOnlyOncompleted);
@@ -32,4 +33,3 @@ function getMonthIndex(monthName) {
 
 
 
-// Получение заданий на сегодня
