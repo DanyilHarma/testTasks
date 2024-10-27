@@ -1,46 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>README - TODO App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        h2 {
-            color: #555;
-        }
-
-        ul {
-            list-style-type: square;
-            margin-left: 20px;
-        }
-
-        pre {
-            background: #333;
-            color: #f8f8f2;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-    </style>
-</head>
-
-<body>
-    <h1>TODO App - README</h1>
+<h1>TODO App - README</h1>
     
     <p>Это приложение "TODO" позволяет пользователю управлять задачами: искать, фильтровать по дате, сортировать, и открывать полное описание каждой задачи в модальном окне.</p>
 
@@ -118,6 +76,5 @@ function searchTasks(query, successCallback) {
 
     <h2>Контакты для обратной связи</h2>
     <p>Если у вас возникли вопросы или предложения, вы можете связаться с нами по email: <a href="mailto:support@todoapp.com">support@todoapp.com</a></p>
-</body>
 
-</html>
+
