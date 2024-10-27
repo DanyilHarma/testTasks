@@ -15,7 +15,11 @@ function openPopup(taskName, taskDescription, taskDate, taskStatus) {
     const $modalHeader = $("<div>").addClass("modalHeader").appendTo($modalContainer);
 
     const $modalInfo = $("<div>").addClass("modalInfo").appendTo($modalHeader);
-    taskStatus.appendTo($modalHeader);
+
+    const $statusContainer = $("<div>")
+        .addClass("statusContainer")
+        .addClass(taskStatus === "true" ? "true" : "").appendTo($modalHeader);
+
     const $overlay = $("<div>").addClass("overlay");
     $("<h2>").text(taskName).appendTo($modalInfo);
     $("<span>").text(taskDate).appendTo($modalInfo);
