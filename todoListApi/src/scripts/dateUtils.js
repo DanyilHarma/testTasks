@@ -1,32 +1,35 @@
-$(".toWeek").on("click", function () {
+function getDateRange(rangeType) {
     const today = new Date();
-    const nextWeek = new Date(today);
-    nextWeek.setDate(today.getDate() + 7);
+    let fromDate, toDate;
 
-    const fromDate = today.getTime();
-    const toDate = nextWeek.getTime();
+    switch (rangeType) {
+        case 'today':
+            today.setHours(0, 0, 0, 0);
+            fromDate = today.getTime();
+            toDate = new Date(today).setHours(23, 59, 59, 999);
+            break;
+        case 'week':
+            fromDate = today.getTime();
+            toDate = new Date(today).setDate(today.getDate() + 7);
+            break;
+        default:
+            throw new Error("Неверный тип диапазона");
+    }
+
+    return { fromDate, toDate };
+}
+
+$(".today, .toWeek").on("click", function () {
+    const rangeType = $(this).hasClass("today") ? 'today' : 'week';
+    const { fromDate, toDate } = getDateRange(rangeType);
 
     updateTaskByDate(fromDate, toDate, function (data) {
         allTasks = data;
         renderAssign(allTasks, $("#checkboxStatus").is(":checked"), false);
+        addTaskClickHandler();
     });
 });
 
-$(".today").on("click", function () {
-    const today = new Date();
-
-    today.setHours(0, 0, 0, 0);
-    const fromDate = today.getTime();
-
-    const endDay = new Date(today);
-    endDay.setHours(23, 59, 59, 999);
-    const toDate = endDay.getTime();
-
-    updateTaskByDate(fromDate, toDate, function (data) {
-        allTasks = data;
-        renderAssign(allTasks, $("#checkboxStatus").is(":checked"), false);
-    });
-});
 
 function formatDate(dateFull, onlyDate = false) {
     const formattedDateString = dateFull.slice(0, -2) + ":" + dateFull.slice(-2);

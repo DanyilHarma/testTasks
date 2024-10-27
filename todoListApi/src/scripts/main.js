@@ -13,6 +13,7 @@ $("#apply-dates").on("click", function () {
             allTasks = data;
             renderAssign(allTasks, $("#checkboxStatus").is(":checked"), false);
         });
+        addTaskClickHandler();
     }
 })
 
@@ -20,10 +21,12 @@ $("#apply-dates").on("click", function () {
 $("#checkboxStatus").on("change", function () {
     const showOnlyOncompleted = $(this).is(":checked");
     renderAssign(allTasks, showOnlyOncompleted, false);
+    addTaskClickHandler()
 })
 
 // Сортировка по дате
 $(".sort").on("click", function () {
     const isReverse = true;
     renderAssign(allTasks, $("#checkboxStatus").is(":checked"), isReverse);
+    addTaskClickHandler()
 })

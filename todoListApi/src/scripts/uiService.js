@@ -40,7 +40,7 @@ function renderDateHeader(date) {
 };
 
 function createTaskElement(element) {
-    const $assignDiv = $("<div>").addClass("assign");
+    const $assignDiv = $("<div>").addClass("assign").attr("data-full-desk", element.fullDesc);
     $("<span>").addClass("name").text(element.name).appendTo($assignDiv);
     const $assignContent = $("<div>").addClass("assignContent").appendTo($assignDiv);
     $("<p>").text(truncateText(element.shortDesc, 100)).appendTo($assignContent);
