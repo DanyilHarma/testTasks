@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>README - TODO App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #555;
+        }
+
+        ul {
+            list-style-type: square;
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #333;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TODO App - README</h1>
+    
+    <p>Это приложение "TODO" позволяет пользователю управлять задачами: искать, фильтровать по дате, сортировать, и открывать полное описание каждой задачи в модальном окне.</p>
+
+    <h2>Основной функционал</h2>
+    <ul>
+        <li>Поиск задач по названию с помощью выпадающего списка.</li>
+        <li>Календарь с возможностью выбора диапазона дат для фильтрации задач.</li>
+        <li>Кнопка для вывода задач на сегодняшнюю дату.</li>
+        <li>Кнопка для вывода задач на текущую неделю.</li>
+        <li>Возможность сортировки списка задач по дате (в прямом и обратном порядке).</li>
+        <li>Фильтр для отображения только невыполненных задач.</li>
+        <li>Открытие полного описания задачи в модальном окне при клике на задачу.</li>
+    </ul>
+
+    <h2>Структура проекта</h2>
+    <ul>
+        <li><strong>index.html:</strong> Главная HTML-страница, которая содержит структуру приложения.</li>
+        <li><strong>scripts/:</strong> Папка со скриптами JavaScript:
+            <ul>
+                <li><strong>dataService.js:</strong> Обработка запросов к API, включая поиск и получение задач по дате.</li>
+                <li><strong>searchService.js:</strong> Логика поиска задач и отображения найденных результатов в выпадающем списке.</li>
+                <li><strong>uiService.js:</strong> Общие функции взаимодействия с интерфейсом.</li>
+                <li><strong>dateUtils.js:</strong> Утилиты для работы с датами, включая форматирование и преобразования.</li>
+                <li><strong>modalService.js:</strong> Логика создания и управления модальными окнами для отображения полного описания задач.</li>
+                <li><strong>main.js:</strong> Основная логика и инициализация приложения.</li>
+            </ul>
+        </li>
+        <li><strong>styles/style.css:</strong> Основные стили приложения.</li>
+    </ul>
+
+    <h2>Запуск проекта</h2>
+    <p>Чтобы запустить приложение на локальном сервере:</p>
+    <ol>
+        <li>Убедитесь, что у вас установлен <strong>Node.js</strong>.</li>
+        <li>Запустите сервер API, необходимый для взаимодействия с базой задач.</li>
+        <li>Откройте <strong>index.html</strong> в браузере, чтобы увидеть интерфейс приложения.</li>
+    </ol>
+
+    <h2>API</h2>
+    <p>Приложение взаимодействует с сервером через REST API:</p>
+    <ul>
+        <li><code>GET /api/todos/find</code> - поиск задач по названию (используется в поле поиска).</li>
+        <li><code>GET /api/todos/date</code> - получение задач по диапазону дат (используется для фильтрации).</li>
+    </ul>
+
+    <h2>Используемые технологии</h2>
+    <ul>
+        <li><strong>HTML5 & CSS3:</strong> Верстка и стилизация.</li>
+        <li><strong>JavaScript (jQuery):</strong> Основная логика взаимодействия с DOM и API.</li>
+    </ul>
+
+    <h2>Пример кода</h2>
+    <pre>
+function searchTasks(query, successCallback) {
+    const url = "http://localhost:3001/api/todos/find";
+    const data = {
+        q: query,
+        limit: 10
+    };
+
+    $.ajax({
+        url: url,
+        method: "GET",
+        data: data,
+        success: function (response) {
+            console.log(response);
+            successCallback(response);
+        },
+        error: function (error) {
+            console.error("Ошибка при получении данных:", error);
+        }
+    });
+}
+    </pre>
+
+    <h2>Контакты для обратной связи</h2>
+    <p>Если у вас возникли вопросы или предложения, вы можете связаться с нами по email: <a href="mailto:support@todoapp.com">support@todoapp.com</a></p>
+</body>
+
+</html>
