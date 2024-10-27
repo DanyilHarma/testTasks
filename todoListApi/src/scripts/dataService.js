@@ -3,7 +3,10 @@ function getTasks(url, data, successCallback) {
         url: url,
         method: "GET",
         data: data,
-        success: successCallback,
+        success: function (response) {
+            console.log(response);
+            successCallback(response)
+        },
         error: function (error) {
             console.error("Ошибка при получении данных:", error);
         }
